@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lector de Inventario - Botellas</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="css/styles.css?v=green-2">
+  </head>
+  <body>
+
+    <div class="scanner-container p-3">
+      
+      <!-- Encabezado -->
+      <header class="text-center my-2">
+        <h1 class="h4 fw-bold mb-1 text-primary">
+          <i class="bi bi-box-seam me-1"></i> Control de Inventario
+        </h1>
+        <p class="text-muted small mb-0">Escaneo visual de productos con IA</p>
+      </header>
+
+      <!-- Visor de la cámara -->
+      <div class="camera-wrapper my-2">
+        <video id="video" playsinline autoplay style="display: none;"></video>
+        <canvas id="canvas" width="400" height="400"></canvas>
+        <div class="scanner-reticle"></div>
+      </div>
+
+      <!-- Botón para alternar cámara en el celular -->
+      <div class="d-flex justify-content-center gap-2 mb-3">
+        <button class="btn btn-sm btn-outline-secondary" id="btn-cambiar-camara" onclick="cambiarCamara();">
+          <i class="bi bi-arrow-repeat me-1"></i> Cambiar cámara
+        </button>
+        <button class="btn btn-sm btn-outline-danger" onclick="reiniciarInventario();">
+          <i class="bi bi-arrow-counterclockwise me-1"></i> Reiniciar stock
+        </button>
+      </div>
+
+      <!-- Tarjeta dinámica de inventario -->
+      <div class="inventory-card p-3" id="panel-inventario">
+        <div class="text-center py-4" id="estado-escaneo">
+          <div class="spinner-border text-primary spinner-border-sm mb-2" id="spinner-carga" role="status"></div>
+          <p class="text-muted mb-0" id="mensaje-estado">Cargando modelo de inteligencia artificial...</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Librerías de Inteligencia Artificial (TensorFlow.js) -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@3.18.0/dist/tf.min.js"></script>
+
+    <!-- Scripts de la aplicación -->
+    <script src="js/inventario.js?v=20261028"></script>
+    <script src="js/app.js?v=20261028"></script>
+  </body>
+</html>

@@ -1,0 +1,20 @@
+# Entorno local y archivos generados por Python
+.venv/
+__pycache__/
+*.pyc
+
+# Dataset de entrenamiento y capturas locales
+dataset/
+
+# Archivos usados solo para entrenar o distribuir datos
+entrenar.py
+archive.zip
+*.zip
+
+# Configuración local, registros y archivos del sistema
+.env
+.env.*
+!.env.example
+*.log
+.DS_Store
+Thumbs.db
